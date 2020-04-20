@@ -1,7 +1,11 @@
 import java.util.*;
 
 public class MaxHeap {
+
+    public static long total_time, start_time, end_time;
     public static void main(String[] args) {
+
+        
 
         Scanner stdin = new Scanner(System.in);
         
@@ -16,7 +20,9 @@ public class MaxHeap {
         }
 
         int n = heapArray.length-1;
-
+        //find the time taken to sort the array
+        start_time = System.nanoTime();
+        
         if(isHeap(heapArray, 0, n))
         {
             System.out.println("Yes, it is a max heap");
@@ -25,7 +31,11 @@ public class MaxHeap {
             System.out.println("No, it is not a max heap");
         }
 
-        //"global var for isHeap method"
+        stdin.close();
+        end_time = System.nanoTime();
+        total_time = end_time-start_time;
+
+        System.out.println("Runnning time: "+total_time+" nanoseconds");
        
     }
 
@@ -57,6 +67,6 @@ public class MaxHeap {
             return isHeap(heapArray, 2*i +1, n) && isHeap(heapArray, 2*i +2, n);
 
        
-         // return false;
+         
     }
 }
